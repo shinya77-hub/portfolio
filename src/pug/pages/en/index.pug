@@ -1,0 +1,69 @@
+extends ../../layouts/_default.pug
+
+append variables
+  -
+    var lang = "en"
+        title = "Shinya Akutsu | Portfolio Site"
+        description = "This is Shinya Akutsu's portfolio site."
+        lang_href = `${process.env.BASE_PATH}ja/`
+        lang_text = "日本語"
+        nav = {
+          top: "Back to Top",
+          about: "About this site",
+          skills: "Experience & Skills",
+          contact: "Contact"
+        }
+
+block content
+  section.hero(data-observe="header-trigger")
+    .hero__inner
+      h1.hero__title
+        |Shinya Akutsu
+        br
+        span Frontend Engineer
+    .hero__bg
+      picture
+        source(srcset="./../img/mv_sp.jpg", media="(max-width: 768px)", alt="Main visual", width="750", height="800")
+        img(src="./../img/mv_pc.jpg", alt="Main visual", width="1920", height="850")
+    .particles(aria-hidden="true")
+      span.particle
+      span.particle
+      span.particle
+      span.particle
+      span.particle
+      span.particle
+
+  section#about
+    .base-layout.pt-120-pc.pb-120-pc.pt-60-sp.pb-60-sp
+      .two-column-layout
+        div
+          h2.heading.heading--level-2 About this site
+          p.mt-40-pc.mt-30-sp
+            |This is Shinya Akutsu's portfolio site.
+            br
+            |Here I outline my experience and the skills I have developed.
+          h3.heading.heading--level-3.mt-60 About me
+          p.mt-20
+            |Frontend Engineer with about 4.5 years of experience at a web production company.
+            br
+            |Since leaving the web production company, I have been focusing on application development using Unity.
+        div
+          img(loading="lazy", src="./../img/about_Illustration.png", alt="Web Development, Application Development", width="450", height="300")
+
+  section#skills.bg-pattern01
+    .base-layout.pt-120-pc.pb-120-pc.pt-60-sp.pb-60-sp
+      h2.heading.heading--level-2.text-center Experience &amp; Skills
+      .checkbox-list.mt-40-pc.mt-30-sp
+        .checkbox
+          input.checkbox__input(type="checkbox", id="web", name="web", data-skill="web")
+          label.checkbox__label(for="web") Web development
+        .checkbox
+          input.checkbox__input(type="checkbox", id="app", name="app", data-skill="app")
+          label.checkbox__label(for="app") App development
+      ul.skill-list.mt-40-pc.mt-30-sp#skill-list
+
+  section#contact
+    .base-layout.pt-120-pc.pb-120-pc.pt-60-sp.pb-60-sp
+      h2.heading.heading--level-2 Contact
+      p.mt-40-pc.mt-30-sp Please contact us at the email address below.
+      p s.akutsu1855@gmail.com

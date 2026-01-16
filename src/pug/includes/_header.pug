@@ -1,0 +1,26 @@
+header.header(data-observe="header")
+  nav.local-nav.pc-only
+    ul.local-nav__list
+      li.local-nav__item: a.local-nav__link(href="#top")=nav.top
+      li.local-nav__item: a.local-nav__link(href="#about")=nav.about
+      li.local-nav__item: a.local-nav__link(href="#skills")=nav.skills
+      li.local-nav__item: a.local-nav__link(href="#contact")=nav.contact
+    a(href=lang_href).lang-btn
+      span.lang-btn__icon(aria-hidden="true")
+      span.lang-btn__text=lang_text
+
+  nav.hamburger-menu.sp-only#hamburger-menu(aria-hidden="true")
+    .hamburger-menu__bg
+    ul.hamburger-menu__list
+      li.hamburger-menu__item: a.hamburger-menu__link(href="#top")=nav.top
+      li.hamburger-menu__item: a.hamburger-menu__link(href="#about")=nav.about
+      li.hamburger-menu__item: a.hamburger-menu__link(href="#skills")=nav.skills
+      li.hamburger-menu__item: a.hamburger-menu__link(href="#contact")=nav.contact
+    a(href=lang_href).lang-btn.mt-30
+      span.lang-btn__icon(aria-hidden="true")
+      span.lang-btn__text=lang_text
+
+  button.hamburger-btn.sp-only(aria-controls="hamburger-menu", aria-expanded="false")
+    span.hamburger-btn__line
+    span.hamburger-btn__line
+    span.hamburger-btn__line
