@@ -1,0 +1,34 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "img": "imagemin src/img/*.{jpg,jpeg,png} --out-dir=dist/img --plugin=mozjpeg --plugin=pngquant",
+    "build:js": "esbuild src/js/main.js --bundle --minify --target=es2017 --outfile=dist/js/main.js",
+    "build:pug": "pug src/pug/pages -o dist",
+    "build:scss": "sass src/scss/style.scss dist/css/style.css --no-source-map",
+    "build:fonts": "cpy src/fonts/**/* dist/fonts",
+    "build": "cross-env BASE_PATH=/portfolio/ npm run build:pug && npm run build:scss && npm run build:fonts && npm run img",
+    "watch:js": "esbuild src/js/main.js --bundle --watch --outfile=dist/js/main.js",
+    "watch:pug": "pug src/pug/pages -o dist -w",
+    "watch:scss": "sass src/scss:dist/css --watch --no-source-map",
+    "browser": "browser-sync start --server dist --startPath /ja/ --files \"dist/**/*\"",
+    "dev": "cross-env BASE_PATH=/ npm-run-all --parallel watch:pug watch:scss watch:js browser"
+  },
+  "volta": {
+    "node": "24.12.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "cpy-cli": "^6.0.0",
+    "cross-env": "^10.1.0",
+    "esbuild": "^0.27.2",
+    "imagemin": "^9.0.1",
+    "imagemin-cli": "^8.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "npm-run-all": "^4.1.5",
+    "pug": "^3.0.3",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.97.1"
+  }
+}

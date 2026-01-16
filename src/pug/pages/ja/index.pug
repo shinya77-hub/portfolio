@@ -1,0 +1,71 @@
+extends ../../layouts/_default.pug
+
+append variables
+  -
+    var lang = "ja"
+        title = "Shinya Akutsu | ポートフォリオサイト"
+        description = "Shinya Akutsu のポートフォリオサイトです。"
+        lang_href = `${process.env.BASE_PATH}en/`
+        lang_text = "English"
+        nav = {
+          top: "トップ",
+          about: "このサイトについて",
+          skills: "経験・技術",
+          contact: "お問い合わせ"
+        }
+
+block content
+  section.hero(data-observe="header-trigger")
+    .hero__inner
+      h1.hero__title
+        |Shinya Akutsu
+        br
+        span フロントエンドエンジニア
+    .hero__bg
+      picture
+        source(srcset="./../img/mv_sp.jpg", media="(max-width: 768px)", alt="メインビジュアル", width="750", height="800")
+        img(src="./../img/mv_pc.jpg", alt="メインビジュアル", width="1920", height="850")
+    .particles(aria-hidden="true")
+      span.particle
+      span.particle
+      span.particle
+      span.particle
+      span.particle
+      span.particle
+
+  section#about
+    .base-layout.pt-120-pc.pb-120-pc.pt-60-sp.pb-60-sp
+      .two-column-layout
+        div
+          h2.heading.heading--level-2 このサイトについて
+          p.mt-40-pc.mt-30-sp
+            |Shinya Akutsu のポートフォリオサイトです。
+            br
+            |経験や身につけたスキルなどについてまとめています。
+          h3.heading.heading--level-3.mt-60 私について
+          p.mt-20
+            |Web制作会社にてフロントエンドエンジニアとして約4年半勤務。
+            br
+            |ディレクター、デザイナー、バックエンドエンジニアと連携しつつ、フロントエンド全般の業務を担当。
+            br
+            |Web制作会社を退職後、Unityを用いたアプリ開発。
+        div
+          img(loading="lazy", src="./../img/about_Illustration.png", alt="Web開発、アプリ開発", width="450", height="300")
+
+  section#skills.bg-pattern01
+    .base-layout.pt-120-pc.pb-120-pc.pt-60-sp.pb-60-sp
+      h2.heading.heading--level-2.text-center 経験・技術
+      .checkbox-list.mt-40-pc.mt-30-sp
+        .checkbox
+          input.checkbox__input(type="checkbox", id="web", name="web", data-skill="web")
+          label.checkbox__label(for="web") Web制作
+        .checkbox
+          input.checkbox__input(type="checkbox", id="app", name="app", data-skill="app")
+          label.checkbox__label(for="app") アプリ開発
+      ul.skill-list.mt-40-pc.mt-30-sp#skill-list
+
+  section#contact
+    .base-layout.pt-120-pc.pb-120-pc.pt-60-sp.pb-60-sp
+      h2.heading.heading--level-2 お問い合わせ
+      p.mt-40-pc.mt-30-sp 下記メールアドレスまでお問い合わせくださいませ。
+      p s.akutsu1855@gmail.com

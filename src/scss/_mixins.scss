@@ -1,0 +1,34 @@
+@use 'variables' as *;
+
+@mixin mq-sp() {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin mq-pc() {
+  @media (min-width: #{$breakpoint + 1px}) {
+    @content;
+  }
+}
+
+// for margin, padding class
+@mixin create-space-class($class-name, $style-name) {
+  @for $i from 0 through 120 {
+    @if $i % 10 ==0 {
+      #{$class-name + $i} {
+        #{$style-name}: #{$i}px;
+      }
+      #{$class-name + $i + '-sp'} {
+        @include mq-sp {
+          #{$style-name}: #{$i}px;
+        }
+      }
+      #{$class-name + $i + '-pc'} {
+        @include mq-pc {
+          #{$style-name}: #{$i}px;
+        }
+      }
+    }
+  }
+}
