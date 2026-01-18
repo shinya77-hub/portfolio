@@ -75,7 +75,7 @@ textarea:not([rows]) {
   font-family: "Oswald";
   src: url("./../fonts/Oswald-Bold.woff2") format("woff2");
   font-weight: 700;
-  font-style: bold;
+  font-style: normal;
   font-display: swap;
 }
 @media (min-width: 769px) {
